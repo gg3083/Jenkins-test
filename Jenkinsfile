@@ -26,7 +26,7 @@ pipeline {
          stage('docker') {
              steps {
                  sh '''
-                       pwd
+                       echo 'pwd'
                        cd  test-04
                        docker build -t ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG} .
                        echo '编译docker完成'
