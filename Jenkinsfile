@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        def GIT_GROUP = 'gg-api'
+        def GIT_GROUP = 'gg3083'
         def GIT_NAME = 'jenkins-test'
 
         TAG = """${sh(
