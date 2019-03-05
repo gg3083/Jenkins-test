@@ -1,14 +1,14 @@
 pipeline {
     agent any
     environment {
-        def GIT_GROUP = 'gg3083'
-        def GIT_NAME = 'jenkins-test'
+        def ip = '127.0.0.1:5000'
+        def project_name = 'jenkins-test'
 
         TAG = """${sh(
                 returnStdout: true,
-                script: "date +%m%d-%H%M"
+                script: "date +%m%d_%H%M"
                       )}"""
-        def DOCKER_IMAGE_NAME = "${GIT_GROUP}"
+        // def DOCKER_IMAGE_NAME = "${ip}/${project_name}"
 
     }
 
@@ -27,10 +27,10 @@ pipeline {
              steps {
                  sh '''
                        pwd
-                       docker build -t ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG} .
+                       docker build -t ${ip}/${project_name}:${TAG} .
                        echo '编译docker完成'
-                       docker push ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG}
-                       docker rmi ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG}
+                       docker push ${ip}/${project_name}:${TAG}
+                       docker rmi ${ip}/${project_name}:${TAG}
                  '''
                  echo "更新完成"
              }
