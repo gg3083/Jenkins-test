@@ -11,15 +11,6 @@ pipeline {
         def DOCKER_IMAGE_NAME = "${test_env}-${GIT_GROUP}-${sub_project}"
 
     }
-    stages {
-        // 下载代码
-        stage('checkout') {
-            steps {
-                echo "代码分支为：${branch} ${GIT_GROUP}/${GIT_NAME}"
-                checkout([$class: 'GitSCM', branches: [[name: '${branch}']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitaccount', url: "http://g.ele.cash/${GIT_GROUP}/${GIT_NAME}.git"]]])
-                // sh "git branch"
-            }
-        }
 
 
         // 打包项目
