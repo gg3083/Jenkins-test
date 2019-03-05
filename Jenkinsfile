@@ -26,8 +26,9 @@ pipeline {
          stage('docker') {
              steps {
                  sh '''
-                       sh "pwd"
-                       cd  test-04 && docker build -t ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG} .
+                       pwd
+                       cd  test-04
+                       docker build -t ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG} .
                        echo '编译docker完成'
                        docker push ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG}
                        docker rmi ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG}
