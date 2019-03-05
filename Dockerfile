@@ -1,8 +1,8 @@
 #FROM java:8u111-jre
-FROM CentOS Linux release 7.6.1810 (Core)
+FROM centos:7.6.1810
 
 # FROM ngnix-php-redis:v9
-LABEL maintainer="gg<gg3083.cn@gmail.com>"
+LABEL maintainer="gg <gg3083.cn@gmail.com>"
 
 RUN yum install java-1.8.0-openjdk-devel -y
 ADD target/jenkins-test-0.0.1-SNAPSHOT.jar /app.jar
