@@ -17,7 +17,7 @@ pipeline {
           // 打包项目
           stage('build') {
                  steps {
-                     sh "/application/maven/bin/mvn clean package -Dmaven.test.skip=true"
+                     sh "/home/gg/maven/bin/mvn clean package -Dmaven.test.skip=true"
                      echo '编译完成'
                  }
           }
