@@ -8,7 +8,7 @@ pipeline {
                 returnStdout: true,
                 script: "date +%m%d-%H%M"
                       )}"""
-        def DOCKER_IMAGE_NAME = "${project-name}-${GIT_GROUP}"
+        def DOCKER_IMAGE_NAME = "${GIT_GROUP}"
 
     }
 
