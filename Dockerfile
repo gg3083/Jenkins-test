@@ -6,7 +6,7 @@ LABEL maintainer="gg <gg3083.cn@gmail.com>"
 
 RUN yum install java-1.8.0-openjdk-devel -y
 ADD target/jenkins-test-0.0.1-SNAPSHOT.jar /app.jar
-ADD env/docker/start.sh /start.sh
+ADD /start.sh
 
 
 RUN chmod 111 /app.jar &&  chmod 111 /start.sh
