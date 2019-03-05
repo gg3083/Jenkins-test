@@ -8,7 +8,7 @@ pipeline {
                 returnStdout: true,
                 script: "date +%m%d-%H%M"
                       )}"""
-        def DOCKER_IMAGE_NAME = "${test_env}-${GIT_GROUP}-${sub_project}"
+        def DOCKER_IMAGE_NAME = "${project-name}-${GIT_GROUP}"
 
     }
 
@@ -26,7 +26,8 @@ pipeline {
          stage('docker') {
              steps {
                  sh '''
-                       cd ${sub_project} && docker build -t ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG} .
+                       sh "pwd"
+                       cd  test-04 && docker build -t ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG} .
                        echo '编译docker完成'
                        docker push ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG}
                        docker rmi ${DOCKER_IMAGE_NAME}/${DOCKER_IMAGE_NAME}:${TAG}
