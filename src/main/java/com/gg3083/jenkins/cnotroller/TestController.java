@@ -15,4 +15,14 @@ public class TestController {
     public String test() {
         return "master";
     }
+
+    @GetMapping("/get")
+    public String get() {
+        return "get";
+    }
+    
+    @PostMapping("/post")
+    public String post() {
+        return "post";
+    }
 }
