@@ -27,6 +27,7 @@ pipeline {
              steps {
                  sh '''
                        pwd
+                       groups
                        docker build -t ${ip}/${project_name}:${TAG} .
                        echo '编译docker完成'
                        docker push ${ip}/${project_name}:${TAG}
