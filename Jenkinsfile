@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        def ip = '127.0.0.1:5000'
+        def ip = '192.168.99.170:5000'
         def project_name = 'jenkins-test'
 
         TAG = """${sh(
@@ -17,7 +17,7 @@ pipeline {
           // 打包项目
           stage('build') {
                  steps {
-                     sh "/home/gg/maven/bin/mvn clean package -Dmaven.test.skip=true"
+                     sh "/usr/share/maven/bin/mvn clean package -Dmaven.test.skip=true"
                      echo '编译完成'
                  }
           }
