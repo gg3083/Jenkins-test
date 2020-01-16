@@ -1,6 +1,7 @@
 pipeline {
     agent any
     environment {
+        def ip = '192.168.99.170:5000'
         def GIT_GROUP = 'root'
         def GIT_NAME = 'jenkins-test'
 
