@@ -1,6 +1,7 @@
-package com.gg3083.jenkins.cnotroller;
+package com.gg3083.jenkins.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -14,5 +15,15 @@ public class TestController {
     @GetMapping("/")
     public String test() {
         return "master";
+    }
+
+    @GetMapping("/get")
+    public String get() {
+        return "get";
+    }
+    
+    @PostMapping("/post")
+    public String post() {
+        return "post";
     }
 }
