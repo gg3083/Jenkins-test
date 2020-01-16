@@ -16,7 +16,7 @@ pipeline {
         // 下载代码
         stage('checkout') {
             steps {
-                echo "代码分支为：${branch} ${GIT_GROUP}/${GIT_NAME}"
+                echo "当前选择的代码分支为：${branch} ${GIT_GROUP}/${GIT_NAME}"
                 checkout([$class: 'GitSCM', branches: [[name: '${branch}']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'b4d3ea5d-f241-4516-86df-b4b7c46dec2d', url: "http://192.168.99.170:8001/${GIT_GROUP}/${GIT_NAME}.git"]]])
                 sh "git branch"
             }
