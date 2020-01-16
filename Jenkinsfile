@@ -9,7 +9,7 @@ pipeline {
                 returnStdout: true,
                 script: "date +%m%d-%H%M"
                       )}"""
-        def DOCKER_IMAGE_NAME = "${ip}/${GIT_GROUP}-dev-${GIT_NAME}"
+        def DOCKER_IMAGE_NAME = "${ip}/${GIT_GROUP}-master-${GIT_NAME}"
 
     }
     stages {
@@ -37,7 +37,7 @@ pipeline {
                         sh '''
                               pwd
                               docker build -t ${DOCKER_IMAGE_NAME}:${TAG} .
-                              echo '编译docker完成-当前分支为dev'
+                              echo '编译docker完成-当前分支为master'
                               docker push ${DOCKER_IMAGE_NAME}:${TAG}
                         '''
                         echo "更新完成"
