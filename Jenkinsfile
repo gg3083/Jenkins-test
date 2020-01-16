@@ -27,7 +27,7 @@ pipeline {
              steps {
                  sh '''
                        pwd
-                       echo '当前分支 master'
+                       echo '当前分支 dev'
                        docker build -t ${ip}/${project_name}:${TAG} .
                        echo '编译docker完成'
                        docker push ${ip}/${project_name}:${TAG}
