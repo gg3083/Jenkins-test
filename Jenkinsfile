@@ -35,9 +35,9 @@ pipeline {
                 stage('docker') {
                     steps {
                         sh '''
-                              docker build -t ${ip}/${DOCKER_IMAGE_NAME}:${TAG} .
+                              docker build -t ${DOCKER_IMAGE_NAME}:${TAG} .
                               echo '编译docker完成'
-                              docker push ${ip}/${DOCKER_IMAGE_NAME}:${TAG}
+                              docker push ${DOCKER_IMAGE_NAME}:${TAG}
                         '''
                         echo "更新完成"
                     }
