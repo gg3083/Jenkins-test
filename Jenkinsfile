@@ -27,8 +27,7 @@ pipeline {
              steps {
                  sh '''
                        pwd
-                       whoami
-                       groups
+                       echo '当前分支 master'
                        docker build -t ${ip}/${project_name}:${TAG} .
                        echo '编译docker完成'
                        docker push ${ip}/${project_name}:${TAG}
