@@ -35,8 +35,9 @@ pipeline {
                 stage('docker') {
                     steps {
                         sh '''
+                              pwd
                               docker build -t ${DOCKER_IMAGE_NAME}:${TAG} .
-                              echo '编译docker完成'
+                              echo '编译docker完成-当前分支为dev'
                               docker push ${DOCKER_IMAGE_NAME}:${TAG}
                         '''
                         echo "更新完成"
