@@ -26,4 +26,9 @@ public class TestController {
     public String post() {
         return "post";
     }
+
+    @PostMapping("/master")
+    public String master() {
+        return "master--master \n master";
+    }
 }
