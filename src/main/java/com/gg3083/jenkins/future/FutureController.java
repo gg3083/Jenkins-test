@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FutureController {
     
-    @GetMapping
+    @GetMapping("future")
     public String future(){
         return "future";
     }

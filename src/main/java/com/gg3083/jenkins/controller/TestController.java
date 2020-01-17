@@ -29,6 +29,7 @@ public class TestController {
 
     @PostMapping("/master")
     public String master() {
+        System.err.println("master");
         return "master--master \n master";
     }
 }
